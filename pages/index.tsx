@@ -1,6 +1,6 @@
-import { TextInput } from '@components/atoms/Input';
+import { TextInput } from '@/components/atoms/CustomInput';
 import { Box } from '@mui/material';
-import styles from '@styles/Home.module.css';
+import styles from '@/styles/Home.module.css';
 import Head from 'next/head';
 import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
@@ -30,12 +30,13 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        <header role="heading">welcome</header>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Box>
-            <TextInput name="name" control={control} ref={inputRef} />
+            <TextInput name="name" data-testid="name" control={control} ref={inputRef} />
           </Box>
           <Box>
-            <TextInput name="address" control={control} disabled={true} placeholder="asdfda" />
+            <TextInput name="address" data-testid="address" control={control} disabled={true} placeholder="asdfda" />
           </Box>
           <input type="submit" />
         </form>
